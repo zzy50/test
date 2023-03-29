@@ -1,2 +1,0 @@
-def MyClass():
-    pass

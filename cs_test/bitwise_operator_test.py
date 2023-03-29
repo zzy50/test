@@ -4,6 +4,3 @@ num2 = 99
 print(num1)
 print(num1 & 255)
 print(0xFF)
-
-import cv2
-cv2.waitKeyEx

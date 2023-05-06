@@ -1,12 +1,14 @@
 import threading
 import time
-from functools import wraps
 import pprint
 import json
+from functools import wraps
+from pathlib import Path
+
 # Capture program start time
 start_time = time.perf_counter()
 
-thread_pool = list()                  # container to hold threads
+thread_pool = list() # container to hold threads
 total_delay = 0
 thread_time_map = dict()
 duration_from_decorator = 0
@@ -52,8 +54,10 @@ for _thread in thread_pool:
 thread_time_map['Total sum'] = sum(thread_time_map.values())
 thread_time_map['Total No of threads'] = len(thread_pool)
 thread_time_map['Average thread time'] = thread_time_map['Total No of threads'] / len(thread_pool)
+
+
 # dump stats to file
-with open('/tmp/program_stats.json', 'w') as file_obj:
+with open(Path(__file__).parent / 'threading_measure_time_performance.json', 'w') as file_obj:
     time.sleep(4)
     json.dump(thread_time_map, file_obj, indent=4)
 # Capture program end time

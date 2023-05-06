@@ -2,7 +2,7 @@ import threading
 import time
 
 
-def consumer(cd):
+def consumer(cd: threading.Condition):
     print("consumer thread started")
     with cd:
         print("consumer waiting ...")
@@ -10,7 +10,7 @@ def consumer(cd):
         print("consumer consumed the resource")
 
 
-def producer(cd):
+def producer(cd: threading.Condition):
     print("producer thread started ...")
     with cd:
         for _ in range(5):

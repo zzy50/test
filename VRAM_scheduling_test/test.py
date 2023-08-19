@@ -51,14 +51,15 @@ class Test:
         while not self.exit_flag:
             if RUNNING.qsize() < LIMIT_QSIZE:
                 time.sleep(0.2)
-                try:
-                    # get 메소드의 옵션
-                    # block: True일 경우 Queue가 비어있어도 queue.Empty exception를 발생시키지 않고 Queue에 요소가 채워질 때까지 대기함. 기본값 True. 
-                    # timeout: 지정된 시간 동안 대기한 후에도 Queue가 비어있으면 queue.Empty exception을 발생시킴. 
-                    cmd_line = BACKLOG.get(timeout=5)
-                except Empty:
-                    self.logger.write("BACKLOG is empty!")   
-                    self.exit_flag = True
+                cmd_line = BACKLOG.get()
+                # try:
+                #     # get 메소드의 옵션
+                #     # block: True일 경우 Queue가 비어있어도 queue.Empty exception를 발생시키지 않고 Queue에 요소가 채워질 때까지 대기함. 기본값 True. 
+                #     # timeout: 지정된 시간 동안 대기한 후에도 Queue가 비어있으면 queue.Empty exception을 발생시킴. 
+                #     cmd_line = BACKLOG.get(timeout=5)
+                # except Empty:
+                #     self.logger.write("BACKLOG is empty!")   
+                #     self.exit_flag = True
                 RUNNING.put(cmd_line)
 
     def process_in_running(self):

@@ -1,3 +1,4 @@
 __pycache__/
 .vscode/
 video_compress_test/video/
+*.mp4

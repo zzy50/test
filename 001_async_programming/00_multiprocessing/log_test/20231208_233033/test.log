@@ -1,0 +1,5 @@
+2023-12-08 23:30:34,205 [ERROR] Exception in process TestProcess: Some error occurred
+Traceback (most recent call last):
+  File "C:\Users\ZZY\Desktop\0_cityeyelab\code\test\001_async_programming\00_multiprocessing\multiprocessing_logger.py", line 17, in process_task
+    raise ValueError("Some error occurred")
+ValueError: Some error occurred
